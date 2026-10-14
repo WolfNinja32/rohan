@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Rohan — In Memoriam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        /* Light mode: warm cream paper, deep warm-brown ink */
+        --bg: #f4ede1;
+        --bg-soft: #ede3d2;
+        --ink: #33241a;
+        --ink-soft: #5c4634;
+        --ink-faint: #8a715a;
+        --rule: #c9b696;
+        --frame: #fffdf8;
+        --frame-edge: #d8c8ab;
+        --shadow: rgba(74, 52, 32, 0.18);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* Dark mode: deep warm brown, cream ink */
+          --bg: #221812;
+          --bg-soft: #2a1e15;
+          --ink: #f0e6d4;
+          --ink-soft: #d3c2a6;
+          --ink-faint: #a68f73;
+          --rule: #57432e;
+          --frame: #2e2115;
+          --frame-edge: #4a3826;
+          --shadow: rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      .page {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: clamp(3rem, 8vw, 5.5rem) clamp(1.25rem, 5vw, 2.5rem) clamp(3.5rem, 8vw, 5rem);
+      }
+
+      /* ---------- Header ---------- */
+      header {
+        text-align: center;
+        margin-bottom: clamp(2.5rem, 6vw, 4rem);
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(3rem, 11vw, 5.25rem);
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-indent: 0.22em; /* balances the tracking */
+        line-height: 1.1;
+      }
+      .dates {
+        margin: 1.1rem 0 0;
+        font-size: clamp(1rem, 3.4vw, 1.3rem);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        color: var(--ink-soft);
+      }
+      .lineage {
+        margin: 0.55rem 0 0;
+        font-size: clamp(0.95rem, 3vw, 1.08rem);
+        font-style: italic;
+        color: var(--ink-faint);
+      }
+      .rule {
+        width: 72px;
+        height: 1px;
+        background: var(--rule);
+        border: 0;
+        margin: clamp(2rem, 5vw, 2.75rem) auto 0;
+      }
+
+      /* ---------- Figures ---------- */
+      figure { margin: 0; }
+      .framed {
+        background: var(--frame);
+        border: 1px solid var(--frame-edge);
+        padding: clamp(0.55rem, 1.6vw, 0.85rem);
+        box-shadow: 0 10px 32px var(--shadow);
+      }
+      .framed img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      figcaption {
+        margin-top: 0.9rem;
+        text-align: center;
+        font-style: italic;
+        font-size: 0.98rem;
+        color: var(--ink-soft);
+      }
+
+      .hero { max-width: 600px; margin: 0 auto; }
+
+      /* ---------- Quote ---------- */
+      .quote {
+        text-align: center;
+        max-width: 640px;
+        margin: clamp(3.5rem, 9vw, 5.5rem) auto;
+      }
+      .quote p.words {
+        margin: 0;
+        font-size: clamp(1.2rem, 3.8vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--ink-soft);
+      }
+      .quote p.big {
+        margin: 1.6rem 0 0;
+        font-size: clamp(1.9rem, 6vw, 2.6rem);
+        font-weight: 500;
+        line-height: 1.3;
+        letter-spacing: 0.01em;
+      }
+      .quote p.attribution {
+        margin: 1.1rem 0 0;
+        font-size: 1rem;
+        color: var(--ink-faint);
+        letter-spacing: 0.04em;
+      }
+
+      /* ---------- Visiting friends ---------- */
+      .visiting { margin-top: clamp(3.5rem, 9vw, 5.5rem); }
+      .visiting-lede {
+        margin: 0 auto clamp(2rem, 5vw, 3rem);
+        max-width: 600px;
+        text-align: center;
+        font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+        line-height: 1.85;
+        color: var(--ink-soft);
+      }
+      .visiting-note {
+        margin: clamp(2rem, 5vw, 3rem) auto 0;
+        max-width: 600px;
+        text-align: center;
+        font-size: clamp(1.2rem, 3.8vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--ink-soft);
+      }
+
+      .visiting + section { margin-top: clamp(3.5rem, 9vw, 5.5rem); }
+
+      /* ---------- Orcas Island ---------- */
+      .orcas { margin-top: clamp(3.5rem, 9vw, 5.5rem); }
+      .orcas-lede {
+        margin: 0 auto clamp(2rem, 5vw, 3rem);
+        max-width: 600px;
+        text-align: center;
+        font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+        line-height: 1.85;
+        color: var(--ink-soft);
+      }
+      .espresso {
+        max-width: 520px;
+        margin: clamp(2.5rem, 6vw, 3.5rem) auto 0;
+      }
+      .espresso-note {
+        margin: 0 auto 1.25rem;
+        max-width: 600px;
+        text-align: center;
+        font-size: clamp(1.2rem, 3.8vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--ink-soft);
+      }
+
+      .orcas + section { margin-top: clamp(3.5rem, 9vw, 5.5rem); }
+
+      /* ---------- Gallery ---------- */
+      .gallery-title {
+        text-align: center;
+        font-size: clamp(1.6rem, 5vw, 2.1rem);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        margin: 0 0 clamp(2rem, 5vw, 3rem);
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.25rem);
+        align-items: start;
+      }
+      .gallery figure.wide {
+        grid-column: 1 / -1;
+        max-width: 520px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      @media (max-width: 620px) {
+        .gallery { grid-template-columns: 1fr; }
+      }
+
+      /* ---------- Closing ---------- */
+      .closing {
+        margin-top: clamp(3.5rem, 9vw, 5.5rem);
+        text-align: center;
+      }
+      .closing .rule { margin: 0 auto clamp(2rem, 5vw, 2.75rem); }
+      .closing p {
+        margin: 0 auto;
+        max-width: 560px;
+        font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+        line-height: 1.85;
+        color: var(--ink-soft);
+      }
+      .closing p.loved-by {
+        margin-top: 1.25rem;
+        font-size: clamp(1.2rem, 3.8vw, 1.5rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--ink);
+      }
+
+      /* ---------- Print ---------- */
+      @media print {
+        :root {
+          --bg: #ffffff;
+          --bg-soft: #ffffff;
+          --ink: #2b1d12;
+          --ink-soft: #4c3826;
+          --ink-faint: #6d5741;
+          --rule: #b7a17e;
+          --frame: #ffffff;
+          --frame-edge: #cbba96;
+          --shadow: none;
+        }
+        body { background: #ffffff; }
+        .page { max-width: none; padding: 1.5cm; }
+        .framed { box-shadow: none; }
+        figure, .quote, .closing { break-inside: avoid; }
+        img { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>ROHAN</h1>
+        <p class="dates">December 9, 2020 – October 6, 2026</p>
+        <p class="lineage">Irish Wolfhound</p>
+        <hr class="rule" />
+      </header>
+
+      <figure class="hero">
+        <div class="framed">
+          <img
+            src="images/img-01.jpg"
+            alt="Rohan standing in the late afternoon sun, backlit so the light glows through his coat, tongue out and happy"
+            width="1320"
+            height="1849"
+          />
+        </div>
+        <figcaption>Gregory's favorite picture — May 2025</figcaption>
+      </figure>
+
+      <section class="quote" aria-label="In Gregory's words">
+        <p class="words">
+          “We've had him since he was a puppy, and watching him grow into this kind,
+          respectful companion has been a joy.”
+        </p>
+        <p class="big">Big dog. Soft heart.</p>
+        <p class="attribution">— Gregory</p>
+      </section>
+
+      <section class="visiting" aria-label="Visiting friends at the rehab center">
+        <h2 class="gallery-title">Visiting friends</h2>
+        <p class="visiting-lede">
+          He visited people in a local rehab center, loved meeting dogs of all
+          sizes — everyone he met, he met gently.
+        </p>
+        <div class="gallery">
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-02.jpg"
+                alt="Rohan at a rehab center bedside, his head resting against a woman in a hospital bed who is holding him with both hands"
+                width="1320"
+                height="1760"
+              />
+            </div>
+            <figcaption>August 2023 — a bedside visit at the rehab center</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-03.jpg"
+                alt="Close-up of Rohan being hugged by a woman in a wheelchair, her hand resting on his shaggy head"
+                width="1320"
+                height="1651"
+              />
+            </div>
+            <figcaption>August 2023 — a wheelchair hug</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-04.jpg"
+                alt="Gregory kneeling behind Rohan in the wood-floored lobby of the rehab center, Rohan standing tall and happy with his tongue out"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>August 2023 — with Gregory in the lobby</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-05.jpg"
+                alt="Rohan lying on the grass beside a wheelchair, relaxed in the afternoon light"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>August 2023 — resting on the grass beside a friend</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-06.jpg"
+                alt="Rohan in profile in the rehab center lobby with Gregory kneeling beside him, tongue out and content"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>August 2023 — another afternoon in the lobby</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-07.jpg"
+                alt="Rohan bending his great head down to greet a tiny fluffy dog standing on its hind legs to reach him, paw raised to his nose"
+                width="1320"
+                height="1760"
+              />
+            </div>
+            <figcaption>Loved meeting dogs of all sizes — even the very smallest</figcaption>
+          </figure>
+        </div>
+        <p class="visiting-note">He was once mistaken for a polar bear.</p>
+      </section>
+
+      <section class="orcas" aria-label="A summer on Orcas Island">
+        <h2 class="gallery-title">A summer on Orcas Island</h2>
+        <p class="orcas-lede">
+          He spent a summer on Orcas Island in the Puget Sound.
+        </p>
+        <div class="gallery">
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-08.jpg"
+                alt="Rohan sitting on the grass above a marina on Orcas Island, looking out over the boats and the water of Puget Sound, his leash held beside him"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>Above the marina — looking out over the Sound</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-09.jpg"
+                alt="Rohan stretched out asleep on the wide wooden porch of a cabin on Orcas Island, evergreen forest beyond the deck"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>Asleep on the cabin porch</figcaption>
+          </figure>
+        </div>
+
+        <div class="espresso">
+          <p class="espresso-note">He loved sniffing my espresso.</p>
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-10.jpg"
+                alt="Rohan leaning his great shaggy head in to sniff the small cup of espresso Gregory is holding, nose almost touching the cup"
+                width="1320"
+                height="1320"
+              />
+            </div>
+            <figcaption>Sniffing Gregory's espresso</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section aria-label="Photographs through the years">
+        <h2 class="gallery-title">Through the years</h2>
+        <div class="gallery">
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-11.jpg"
+                alt="A young Rohan on a leash, already towering, in 2021"
+                width="1320"
+                height="990"
+               
+              />
+            </div>
+            <figcaption>2021 — not yet a year old, already enormous</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-12.jpg"
+                alt="Rohan as a small puppy curled on his bed on the wood floor, looking up at the camera with oversized paws"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>As a puppy — all paws and ears</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-13.jpg"
+                alt="Rohan as a puppy being held in someone's arms in the garden by the pool, already a great armful"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>As a puppy — still small enough to hold</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-14.jpg"
+                alt="Rohan at home with Gregory, April 2026"
+                width="1320"
+                height="1760"
+               
+              />
+            </div>
+            <figcaption>April 2026 — at home with Gregory</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-15.jpg"
+                alt="Rohan asleep on the patio in the garden sun, April 2026"
+                width="1320"
+                height="990"
+               
+              />
+            </div>
+            <figcaption>April 2026 — asleep in the garden sun</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-16.jpg"
+                alt="Rohan on the front lawn, July 2026"
+                width="1320"
+                height="990"
+               
+              />
+            </div>
+            <figcaption>July 2026 — the front lawn</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-17.jpg"
+                alt="Rohan in profile on the lawn, watching the street, July 2026"
+                width="1320"
+                height="990"
+               
+              />
+            </div>
+            <figcaption>July 2026 — watching the street</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-18.jpg"
+                alt="Rohan stretched out across the kitchen floor, July 2026"
+                width="1320"
+                height="1760"
+               
+              />
+            </div>
+            <figcaption>July 2026 — occupying the kitchen</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-19.jpg"
+                alt="Rohan lying on his back with his paws in the air, August 2026"
+                width="1320"
+                height="990"
+               
+              />
+            </div>
+            <figcaption>August 2026 — upside down, as usual</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-20.jpg"
+                alt="Rohan at the dog park, August 2026"
+                width="1320"
+                height="1760"
+               
+              />
+            </div>
+            <figcaption>August 2026 — the dog park</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-21.jpg"
+                alt="Rohan wearing a Superman costume — blue suit and red cape — standing on the front porch"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>Superman — cape and all</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-22.jpg"
+                alt="Rohan standing beside the garden pond among ferns, looking back over his shoulder"
+                width="1320"
+                height="990"
+              />
+            </div>
+            <figcaption>By the pond in the garden</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-23.jpg"
+                alt="Rohan standing in full profile inside a pet store, Gregory kneeling beside him with a hand on his back"
+                width="1320"
+                height="1650"
+              />
+            </div>
+            <figcaption>At the pet store with Gregory</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-24.jpg"
+                alt="Rohan on the sidewalk with Gregory and Elaine, Gregory holding his leash, late afternoon light on his coat"
+                width="1320"
+                height="1760"
+              />
+            </div>
+            <figcaption>Out with Gregory and Elaine</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-25.jpg"
+                alt="A young Rohan sitting upright in the back seat of a car, tongue out and delighted, fields and trees passing outside the window"
+                width="1320"
+                height="1718"
+              />
+            </div>
+            <figcaption>Riding in the back seat — tongue out, as always</figcaption>
+          </figure>
+
+          <figure>
+            <div class="framed">
+              <img
+                src="images/img-26.jpg"
+                alt="A close-up of Rohan's shaggy face indoors in warm evening light, tongue out and happy"
+                width="1320"
+                height="1760"
+              />
+            </div>
+            <figcaption>Close up — that face</figcaption>
+          </figure>
+
+          <figure class="wide">
+            <div class="framed">
+              <img
+                src="images/img-27.jpg"
+                alt="Rohan standing on a park path in golden light, a great pair of white feathered wings spread behind him"
+                width="1320"
+                height="1980"
+               
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <footer class="closing">
+        <hr class="rule" />
+        <p>
+          Rohan — December 9, 2020 – October 6, 2026. He was happy, and he was home.
+        </p>
+        <p class="loved-by">Loved by Gregory, Elaine, Jonathan and all that met him.</p>
+      </footer>
+    </main>
+  </body>
+</html>
